@@ -1,15 +1,14 @@
-// import React, { Component } from "react";
 import React from "react";
 import KeanuCard from "./components/KeanuCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
+import keanu1img from "./components/keanu1.jpeg";
 
 const keanuPics = [
   {
     id: 1,
     name: "keanu1",
-    image:
-      "https://vignette.wikia.nocookie.net/spongebobgalaxy/images/0/07/SpongeBob_SquarePants.png/revision/latest?cb=20171228024014",
+    image: keanu1img,
     clicked: false,
   },
   {

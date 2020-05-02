@@ -7,7 +7,7 @@ function KeanuCard(props) {
       {props.keanuPics.map((item) => (
         <div className="img-container">
           <div className="card" key={item.id}>
-            <img alt={props.name} src={props.image} />
+            <img alt={item.name} src={item.image} />
           </div>
         </div>
       ))}
