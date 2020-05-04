@@ -18,17 +18,14 @@ function KeanuCard({ keanuPics }) {
     <div className="card-group">
       {randomKeanus.map((item) => (
         <div className="img-container">
-          <div className="card">
-            <img
-              key={item.id}
-              alt={item.name}
-              src={item.image}
-              onClick={() => item.handleImgClick(item.id)}
-            />
-          </div>
+          <button>
+            <img key={item.id} alt={item.name} src={item.image} />
+          </button>
         </div>
       ))}
     </div>
   );
 }
 export default KeanuCard;
+
+// onClick={this.handleClick(item.id)}

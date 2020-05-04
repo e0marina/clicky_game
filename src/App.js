@@ -96,10 +96,10 @@ class App extends Component {
     keanuPics,
   };
 
-  handleImgClick = () => {
+  handleClick = (event) => {
     //when an image is clicked, the keanuPics property clicked is changed to true
-    // event.preventDefault();
-    this.setState({ clicked: true });
+    event.preventDefault();
+    return this.setState({ clicked: true });
   };
   render() {
     const clicked = this.state.clicked;
