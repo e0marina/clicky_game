@@ -2,25 +2,35 @@ import React, { Component } from "react";
 import KeanuCard from "./components/KeanuCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
+import ScoreCard from "./components/ScoreCard";
 import keanuPics from "./keanus.json";
 
 class App extends Component {
   //setting this.state.keanuPics to the keanus json array
   state = {
     keanuPics,
+    score: 0,
   };
 
   handleClick = (id) => {
     //when an image is clicked, the keanuPics property clicked is set to true
     this.setState({ clicked: true });
-    console.log("clicked set to true");
+    // console.log("clicked set to true");
+    this.scoreHandler();
+  };
+
+  scoreHandler = () => {
+    if (this.state.clicked === true) {
+      console.log("this.state.clicked is true");
+      this.setState({ score: this.state.score + 1 });
+    } else {
+      console.log("this.state.clicked is false");
+    }
   };
 
   render() {
-    const clicked = this.state.clicked;
-    if (clicked === true) {
-      // console.log("clicked = true");
-    }
+    // const clicked = this.state.clicked;
+
     //create func that handles making the pics render randomly
     function randomizekeanuPics(array) {
       let i = array.length - 1;
@@ -36,8 +46,7 @@ class App extends Component {
     return (
       <Wrapper>
         <Title>Clicky Game</Title>
-        {/* // Map over this.state.keanuPics and render a KeanuCard component for each keanu object */}
-
+        <ScoreCard>Score: {this.state.score} </ScoreCard>
         {randomizekeanuPics(this.state.keanuPics).map((keanu) => (
           <KeanuCard
             clicked={this.handleClick}
