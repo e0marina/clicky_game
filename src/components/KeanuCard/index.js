@@ -26,15 +26,10 @@ import "./style.css";
 function KeanuCard(props) {
   return (
     <div className="card-group">
-      <button
-        onClick={() => props.handleClick(props.id)}
-        className="clickHandler"
-      >
+      <button onClick={() => props.clicked(props.id)} className="clickHandler">
         <img alt={props.name} src={props.image} />
       </button>
     </div>
   );
 }
 export default KeanuCard;
-
-// onClick={this.handleClick(item.id)}

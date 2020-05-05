@@ -13,15 +13,15 @@ class App extends Component {
   handleClick = (id) => {
     //when an image is clicked, the keanuPics property clicked is set to true
 
-    // this.setState({ clicked: true });
-    console.log("this is working");
+    this.setState({ clicked: true });
+    // console.log("this is working");
   };
 
   render() {
-    // const clicked = this.state.clicked;
-    // if (clicked === true) {
-    //   console.log("clicked = true");
-    // }
+    const clicked = this.state.clicked;
+    if (clicked === true) {
+      // console.log("clicked = true");
+    }
     return (
       <Wrapper>
         <Title>Clicky Game</Title>
