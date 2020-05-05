@@ -12,9 +12,8 @@ class App extends Component {
 
   handleClick = (id) => {
     //when an image is clicked, the keanuPics property clicked is set to true
-
     this.setState({ clicked: true });
-    // console.log("this is working");
+    console.log("clicked set to true");
   };
 
   render() {
@@ -22,11 +21,24 @@ class App extends Component {
     if (clicked === true) {
       // console.log("clicked = true");
     }
+    //create func that handles making the pics render randomly
+    function randomizekeanuPics(array) {
+      let i = array.length - 1;
+      for (; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+      }
+      return array;
+    }
+
     return (
       <Wrapper>
         <Title>Clicky Game</Title>
         {/* // Map over this.state.keanuPics and render a KeanuCard component for each keanu object */}
-        {this.state.keanuPics.map((keanu) => (
+
+        {randomizekeanuPics(this.state.keanuPics).map((keanu) => (
           <KeanuCard
             clicked={this.handleClick}
             id={keanu.id}
