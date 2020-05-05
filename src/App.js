@@ -9,28 +9,16 @@ class App extends Component {
   //setting this.state.keanuPics to the keanus json array
   state = {
     keanuPics,
-    score: 0,
   };
 
   handleClick = (id) => {
     //when an image is clicked, the keanuPics property clicked is set to true
     this.setState({ clicked: true });
-    // console.log("clicked set to true");
-    this.scoreHandler();
-  };
 
-  scoreHandler = () => {
-    if (this.state.clicked === true) {
-      console.log("this.state.clicked is true");
-      this.setState({ score: this.state.score + 1 });
-    } else {
-      console.log("this.state.clicked is false");
-    }
+    // console.log("clicked set to true");
   };
 
   render() {
-    // const clicked = this.state.clicked;
-
     //create func that handles making the pics render randomly
     function randomizekeanuPics(array) {
       let i = array.length - 1;
@@ -46,7 +34,7 @@ class App extends Component {
     return (
       <Wrapper>
         <Title>Clicky Game</Title>
-        <ScoreCard>Score: {this.state.score} </ScoreCard>
+        <ScoreCard></ScoreCard>
         {randomizekeanuPics(this.state.keanuPics).map((keanu) => (
           <KeanuCard
             clicked={this.handleClick}
