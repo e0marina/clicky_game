@@ -9,13 +9,23 @@ class App extends Component {
   //setting this.state.keanuPics to the keanus json array
   state = {
     keanuPics,
+    score: 0,
   };
 
   handleClick = (id) => {
     //when an image is clicked, the keanuPics property clicked is set to true
     this.setState({ clicked: true });
+    if (this.state.clicked === true) {
+      this.handleIncrement();
+    } else {
+      this.setState({ score: 0 });
+    }
+  };
 
-    // console.log("clicked set to true");
+  // handleIncrement increases this.state.score by 1
+  handleIncrement = () => {
+    // We always use the setState method to update a component's state
+    this.setState({ score: this.state.score + 1 });
   };
 
   render() {
@@ -34,7 +44,7 @@ class App extends Component {
     return (
       <Wrapper>
         <Title>Clicky Game</Title>
-        <ScoreCard></ScoreCard>
+        <ScoreCard>Score: {this.state.score}</ScoreCard>
         {randomizekeanuPics(this.state.keanuPics).map((keanu) => (
           <KeanuCard
             clicked={this.handleClick}
