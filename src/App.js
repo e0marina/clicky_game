@@ -38,6 +38,7 @@ class App extends Component {
     // this.setState({ keanuPics: newpics})
 
     if (isAlreadyClicked) {
+      this.handleHighScore();
       this.setState({ score: 0 });
       this.setState({ keanuPics: keanuPics });
     } else {
@@ -49,6 +50,13 @@ class App extends Component {
   handleIncrement = () => {
     // We always use the setState method to update a component's state
     this.setState({ score: this.state.score + 1 });
+  };
+
+  handleHighScore = () => {
+    //high score is === to score initially
+    if (this.state.score >= this.state.highScore) {
+      this.setState({ highScore: this.state.score });
+    }
   };
 
   render() {
@@ -67,7 +75,13 @@ class App extends Component {
     return (
       <Wrapper>
         <Title>Clicky Game</Title>
-        <ScoreCard>Score: {this.state.score}</ScoreCard>
+        <ScoreCard>
+          <div>
+            <span>Score: {this.state.score}</span>
+            <br></br>
+            <span>High Score: {this.state.highScore}</span>
+          </div>
+        </ScoreCard>
         {randomizekeanuPics(this.state.keanuPics).map((keanu) => (
           <KeanuCard
             clicked={this.handleClick}
