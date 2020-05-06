@@ -10,15 +10,38 @@ class App extends Component {
   state = {
     keanuPics,
     score: 0,
+    highScore: 0,
   };
 
   handleClick = (id) => {
+    // this === App which has state.
     //when an image is clicked, the keanuPics property clicked is set to true
-    this.setState({ clicked: true });
-    if (this.state.clicked === true) {
-      this.handleIncrement();
-    } else {
+    // console.log(id);
+    //set entire keanupics array again bc react
+    let isAlreadyClicked = false;
+    const newkeanuPics = this.state.keanuPics.map((keanuImg) => {
+      if (keanuImg.id === id) {
+        isAlreadyClicked = keanuImg.clicked;
+        return {
+          ...keanuImg,
+          clicked: true,
+        };
+      } else {
+        return keanuImg;
+      }
+    });
+    this.setState({ keanuPics: newkeanuPics });
+
+    //const newpics = [...this.state.keanuPics];
+    //const keanuIndex = this.state.keanuPics.findIndex((keanu) => keanu.id === id);
+    //newpics[keanuIndex].clicked = true;
+    // this.setState({ keanuPics: newpics})
+
+    if (isAlreadyClicked) {
       this.setState({ score: 0 });
+      this.setState({ keanuPics: keanuPics });
+    } else {
+      this.handleIncrement();
     }
   };
 
