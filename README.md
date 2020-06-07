@@ -11,5 +11,12 @@ This is a memory game that displays pictures of Keanu Reeves to the screen. Afte
 ## Tech Used 
 React.js
 
+## Further Development 
+Need to make the layout more friendly / pleasing to the eye
+
+## How to Run 
+You need to clone the repo to run it locally
+
+
 
 
